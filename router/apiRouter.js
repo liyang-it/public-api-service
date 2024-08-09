@@ -2,6 +2,12 @@
 
 const express = require('express');
 const app = express.Router();
+const cors = require('cors');
+// 使用cors中间件
+app.use(cors({
+	origin: '*', // 允许来自任何源的请求
+	methods: ['GET', 'POST', 'PUT', 'DELETE'] // 允许的HTTP方法
+}));
 const axios = require('axios');
 /**
  * 查询某个省汽油柴油价格<br>

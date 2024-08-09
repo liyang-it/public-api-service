@@ -5,6 +5,13 @@ const appRouter = require('./router/appRouter')
 const adminRouter = require('./router/adminRouter')
 const apiRouter = require('./router/apiRouter')
 const app = express();
+const cors = require('cors');
+// 使用cors中间件
+// 使用cors中间件
+app.use(cors({
+	origin: '*', // 允许来自任何源的请求
+	methods: ['GET', 'POST', 'PUT', 'DELETE'] // 允许的HTTP方法
+}));
 const port = 8080;
 
 app.use(express.json());
@@ -24,7 +31,9 @@ app.get('/', (req, res) => {
 
 // 处理 GET 请求 /get ，参数 a，并且返回 a参数值
 app.get('/get', (req, res) => {
-    const { a } = req.query;
+    const {
+        a
+    } = req.query;
     res.send(a);
 });
 
