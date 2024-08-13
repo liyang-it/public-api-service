@@ -252,7 +252,7 @@ app.get('/checkVersion', (req, res) => {
 		version
 	} = req.query
 	// 服务器apk版本
-	const app_version = 1;
+	const app_version = 2;
 	if (app_version > version) {
 		res.send(true)
 	} else {
